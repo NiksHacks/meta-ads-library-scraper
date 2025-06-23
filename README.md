@@ -1,229 +1,311 @@
-# Meta Ads Library Scraper
+# Meta Ads Library Scraper 2025
 
-🚀 **Advanced Apify Actor for scraping Meta (Facebook) Ads Library with sophisticated anti-detection capabilities**
+🚀 **Next-Generation Meta (Facebook) Ads Library Scraper** - Advanced Apify Actor with cutting-edge 2025 anti-detection techniques.
 
 ## 📋 Overview
 
-This Actor extracts comprehensive data from Meta's Ads Library using advanced web scraping techniques with built-in anti-detection measures. It's designed to handle Facebook's sophisticated bot detection systems while respecting rate limits and maintaining ethical scraping practices.
+This Apify Actor provides comprehensive data extraction from Meta's Ad Library using:
 
-## ✨ Features
+- **🛡️ Advanced Anti-Detection** - Modern fingerprinting evasion and stealth techniques
+- **🔍 GraphQL Interception** - Captures comprehensive ad data directly from API calls
+- **🎭 Human Behavior Simulation** - Realistic mouse movements, scrolling, and delays
+- **🌐 Proxy Support** - Built-in Apify proxy integration with residential IPs
+- **📊 Comprehensive Data** - Ad creatives, targeting, performance metrics, and more
 
-- 🛡️ **Advanced Anti-Detection**: Multiple layers of bot detection evasion
-- 🔄 **Smart Proxy Rotation**: Residential proxy support with country targeting
-- 📊 **Comprehensive Data Extraction**: Detailed ad information including spend, impressions, targeting
-- 🎯 **Flexible Filtering**: Search by keywords, country, ad type, and status
-- 📈 **Scalable Architecture**: Handle thousands of ads efficiently
-- 🔍 **Multiple Output Formats**: Basic, detailed, or full data extraction
-- ⚡ **Performance Optimized**: Human-like behavior simulation
+## 🆕 Novità 2025
 
-## 🎯 Use Cases
+- ✅ Bypass avanzato dei sistemi anti-bot di Facebook
+- ✅ Intercettazione richieste GraphQL interne
+- ✅ Simulazione comportamento umano realistico
+- ✅ Supporto per tutti i tipi di ads (non solo politici)
+- ✅ Rotazione User-Agent e fingerprint evasion
+- ✅ Metodo HAR per estrazione legale al 100%
 
-- **Competitive Intelligence**: Monitor competitor advertising strategies
-- **Market Research**: Analyze advertising trends in specific industries
-- **Ad Compliance**: Track political and issue-based advertising
-- **Creative Analysis**: Study successful ad formats and messaging
-- **Spend Analysis**: Monitor advertising investment patterns
+## 🛠️ Installazione Rapida
 
-## 📥 Input Parameters
+### 1. Setup Automatico
+```bash
+# Clona o scarica i file del progetto
+cd V2Scraping
 
-### Required
-- **searchQuery** (string): Search term for ads (e.g., "Nike", "Tesla")
+# Esegui setup automatico
+python setup.py
+```
 
-### Optional
-- **country** (string): Country code for targeting (default: "ALL")
-  - Examples: "US", "IT", "GB", "DE", "FR"
-- **adType** (enum): Type of ads to search
-  - `ALL` (default)
-  - `POLITICAL_AND_ISSUE_ADS`
-  - `HOUSING_ADS`
-  - `EMPLOYMENT_ADS`
-  - `CREDIT_ADS`
-- **maxAds** (integer): Maximum number of ads to scrape (1-10000, default: 100)
-- **includeInactive** (boolean): Include inactive ads (default: false)
-- **scrapeDetails** (boolean): Extract detailed information (default: true)
-- **outputFormat** (enum): Data detail level
-  - `basic`: Essential information only
-  - `detailed`: Comprehensive data (default)
-  - `full`: All available information
-- **delayBetweenRequests** (integer): Delay in milliseconds (1000-10000, default: 2000)
-- **proxyConfiguration** (object): Proxy settings for anti-detection
+### 2. Setup Manuale
+```bash
+# Installa dipendenze Python
+pip install -r requirements.txt
 
-## 📤 Output Data
+# Installa browser Playwright
+playwright install chromium
+```
 
-Each scraped ad contains:
+## 🚀 Quick Start
+
+### Using Apify Console
+1. **Import this Actor** to your Apify account
+2. **Configure input parameters** (see Input Configuration below)
+3. **Run the Actor** and monitor progress
+4. **Download results** from the dataset
+
+### Local Development
+```bash
+# 1. Install dependencies
+npm install
+
+# 2. Set up environment
+cp .env.example .env
+# Edit .env with your configuration
+
+# 3. Run locally
+npm start
+```
+
+## 📊 Output Data
+
+The Actor saves comprehensive ad data to the Apify dataset with the following structure:
 
 ```json
 {
   "adId": "123456789",
   "pageId": "987654321",
-  "pageName": "Nike",
-  "adContent": "Just Do It - New Collection Available Now",
+  "pageName": "Brand Name",
+  "adContent": "Ad text content...",
   "startDate": "2025-01-01",
   "endDate": "2025-01-31",
-  "spend": "$5,000 - $10,000",
-  "impressions": "100K - 500K",
-  "reach": "50K - 100K",
-  "demographics": "Age: 18-65, Gender: All",
-  "platforms": "Facebook, Instagram",
-  "adCreative": ["https://example.com/image1.jpg"],
-  "targetingInfo": "Sports enthusiasts, Fitness",
-  "scrapedAt": "2025-01-15T10:30:00.000Z",
-  "url": "https://www.facebook.com/ads/library/?q=Nike"
+  "spend": "1000-5000",
+  "impressions": "10K-50K",
+  "reach": "8K-40K",
+  "demographics": {...},
+  "platforms": ["Facebook", "Instagram"],
+  "adCreative": {
+    "images": [...],
+    "videos": [...],
+    "link_url": "..."
+  },
+  "targetingInfo": {...},
+  "currency": "EUR",
+  "isActive": true,
+  "scrapedAt": "2025-01-15T10:30:00Z",
+  "source": "graphql_interception"
 }
 ```
 
-## 🚀 Quick Start
+### Struttura Dati CSV
 
-### 1. Basic Search
-```json
-{
-  "searchQuery": "Nike",
-  "maxAds": 50
-}
+| Campo | Descrizione |
+|-------|-------------|
+| `timestamp` | Data/ora estrazione |
+| `ad_id` | ID univoco dell'ad |
+| `page_name` | Nome della pagina |
+| `page_id` | ID della pagina |
+| `ad_text` | Testo dell'annuncio |
+| `image_url` | URL immagine |
+| `video_url` | URL video |
+| `cta_text` | Testo call-to-action |
+| `start_date` | Data inizio campagna |
+| `end_date` | Data fine campagna |
+| `impressions` | Numero impressioni |
+| `spend` | Spesa pubblicitaria |
+| `demographics` | Dati demografici |
+| `platforms` | Piattaforme di pubblicazione |
+
+## 🔧 Configurazione Avanzata
+
+### File di Configurazione
+
+Copia `config.env.example` in `.env` e modifica:
+
+```env
+# Impostazioni generali
+HEADLESS=false
+MAX_RESULTS=100
+DELAY_MIN=1
+DELAY_MAX=3
+
+# Proxy (opzionale)
+USE_PROXY=false
+PROXY_LIST=proxy1:port,proxy2:port
+
+# Anti-detection
+SIMULATE_HUMAN=true
+RANDOM_DELAYS=true
+MOUSE_MOVEMENTS=true
+
+# Output
+OUTPUT_FORMAT=csv,json
+OUTPUT_DIR=./results
 ```
 
-### 2. Advanced Search with Targeting
-```json
-{
-  "searchQuery": "Tesla",
-  "country": "US",
-  "adType": "ALL",
-  "maxAds": 200,
-  "includeInactive": true,
-  "outputFormat": "detailed",
-  "proxyConfiguration": {
-    "useApifyProxy": true,
-    "apifyProxyGroups": ["RESIDENTIAL"]
-  }
-}
+### Personalizzazione Scraper
+
+```python
+# Esempio di utilizzo programmatico
+from facebook_ad_library_scraper_2025 import FacebookAdLibraryScraper
+
+async def custom_scraping():
+    scraper = FacebookAdLibraryScraper(
+        headless=True,
+        use_proxy=False
+    )
+    
+    await scraper.search_ads(
+        search_term="your_brand",
+        max_results=200
+    )
+    
+    scraper.save_results("custom_output")
 ```
 
-### 3. Political Ads Monitoring
-```json
-{
-  "searchQuery": "election",
-  "country": "US",
-  "adType": "POLITICAL_AND_ISSUE_ADS",
-  "maxAds": 500,
-  "scrapeDetails": true
-}
+## 🛡️ Tecniche Anti-Detection
+
+### Scraper Automatico
+- **Playwright Stealth** - Evasione fingerprinting avanzata
+- **User-Agent Rotation** - Rotazione automatica browser
+- **Viewport Randomization** - Dimensioni schermo casuali
+- **Human Behavior Simulation** - Movimenti mouse e scroll realistici
+- **Request Timing** - Delay casuali tra richieste
+- **GraphQL Interception** - Cattura dati API interne
+
+### Metodo HAR
+- **100% Legale** - Usa traffico web registrato manualmente
+- **Zero Detection** - Nessun rischio di ban
+- **Accesso Completo** - Tutti i tipi di ads disponibili
+- **Dati Strutturati** - JSON dalle API interne Facebook
+
+## 📈 Confronto Metodi
+
+| Caratteristica | Scraper Automatico | Estrattore HAR |
+|----------------|-------------------|----------------|
+| **Legalità** | ⚠️ Zona grigia | ✅ 100% Legale |
+| **Velocità** | 🚀 Veloce | 🐌 Manuale |
+| **Rilevamento** | ⚠️ Possibile | ✅ Zero rischio |
+| **Scalabilità** | ✅ Alta | ⚠️ Limitata |
+| **Facilità** | ✅ Automatico | ⚠️ Richiede setup |
+| **Dati** | ✅ Buona qualità | ✅ Qualità massima |
+| **Manutenzione** | ⚠️ Aggiornamenti | ✅ Stabile |
+
+## 🎯 Casi d'Uso
+
+### Ricerca Competitiva
+```bash
+# Analizza ads dei competitor
+python facebook_ad_library_scraper_2025.py
+# Cerca: "competitor_name"
 ```
 
-## 🛡️ Anti-Detection Features
+### Analisi Settore
+```bash
+# Estrai ads per categoria
+python facebook_ad_library_scraper_2025.py
+# Cerca: "fitness", "fashion", "tech"
+```
 
-### Browser Fingerprinting Protection
-- Random user agents from real browser pool
-- Dynamic viewport sizes
-- WebDriver property masking
-- Plugin and language spoofing
+### Monitoraggio Brand
+```bash
+# Monitora menzioni del tuo brand
+python facebook_ad_library_scraper_2025.py
+# Cerca: "your_brand_name"
+```
 
-### Human-Like Behavior
-- Random delays between actions
-- Natural scrolling patterns
-- Mouse movement simulation
-- Realistic page interaction timing
+### Ricerca Creativa
+```bash
+# Trova ispirazione per creatività
+# Usa metodo HAR per sessioni lunghe
+python facebook_har_extractor_2025.py session.har
+```
 
-### Proxy Management
-- Residential proxy rotation
-- Country-specific IP addresses
-- Session persistence
-- Automatic retry with different proxies
+## 🔍 Troubleshooting
 
-## ⚙️ Technical Implementation
+### Problemi Comuni
 
-### Architecture
-- **Framework**: Crawlee with Playwright
-- **Browser**: Chromium with stealth mode
-- **Language**: Node.js
-- **Storage**: Apify Dataset
+**1. Scraper non trova ads:**
+```bash
+# Prova modalità non-headless per debug
+python facebook_ad_library_scraper_2025.py
+# Seleziona: headless = n
+```
 
-### Performance Optimizations
-- Efficient DOM querying with multiple selectors
-- Duplicate detection and filtering
-- Memory-efficient data processing
-- Graceful error handling and recovery
+**2. Errori di installazione:**
+```bash
+# Reinstalla dipendenze
+pip uninstall playwright playwright-stealth
+pip install -r requirements.txt
+playwright install chromium
+```
 
-## 📊 Monitoring & Debugging
+**3. File HAR vuoto:**
+- Assicurati di aver attivato "Preserve log" in DevTools
+- Naviga attivamente nell'Ad Library durante la registrazione
+- Registra per almeno 5-10 minuti
 
-### Logs
-The Actor provides detailed logging:
-- Request processing status
-- Anti-detection measures applied
-- Data extraction progress
-- Error handling and recovery
+**4. Rilevamento anti-bot:**
+- Usa il metodo HAR invece dello scraper automatico
+- Riduci la velocità di scraping
+- Usa proxy diversi
 
-### Metrics
-- Total ads scraped
-- Success/failure rates
-- Processing time per page
-- Proxy performance
+### Log e Debug
 
-## ⚠️ Important Considerations
+```bash
+# Abilita logging dettagliato
+export LOG_LEVEL=DEBUG
+python facebook_ad_library_scraper_2025.py
+```
 
-### Legal & Ethical
-- ✅ Scrapes only publicly available data
-- ✅ Respects robots.txt and rate limits
-- ✅ No personal data collection
-- ⚠️ Check local laws and Meta's Terms of Service
+## ⚖️ Note Legali
 
-### Rate Limiting
-- Built-in delays between requests
-- Automatic backoff on errors
-- Proxy rotation to distribute load
-- Human-like interaction patterns
+### ⚠️ IMPORTANTE - Leggere Attentamente
 
-### Data Quality
-- Multiple extraction strategies for reliability
-- Duplicate detection and removal
-- Data validation and cleaning
-- Comprehensive error handling
+1. **Rispetta i Terms of Service** di Facebook
+2. **Non abusare** del servizio (limita le richieste)
+3. **Usa responsabilmente** i dati estratti
+4. **Considera l'API ufficiale** quando possibile
+5. **Il metodo HAR è raccomandato** per uso commerciale
 
-## 🔧 Troubleshooting
+### Disclaimer
 
-### Common Issues
+```
+Questo software è fornito "as-is" solo per scopi educativi e di ricerca.
+Gli utenti sono responsabili del rispetto dei Terms of Service di Facebook
+e delle leggi applicabili. Gli autori non si assumono responsabilità per
+l'uso improprio di questo software.
+```
 
-1. **No ads found**
-   - Check search query spelling
-   - Verify country/region settings
-   - Try broader search terms
+## 🤝 Contributi
 
-2. **Rate limiting**
-   - Increase delay between requests
-   - Enable proxy configuration
-   - Reduce maxAds parameter
+Contributi benvenuti! Per favore:
 
-3. **Incomplete data**
-   - Enable detailed scraping
-   - Check for page layout changes
-   - Verify proxy connectivity
+1. Fork del repository
+2. Crea branch per la feature (`git checkout -b feature/AmazingFeature`)
+3. Commit delle modifiche (`git commit -m 'Add AmazingFeature'`)
+4. Push al branch (`git push origin feature/AmazingFeature`)
+5. Apri una Pull Request
 
-### Performance Tips
+## 📞 Supporto
 
-- Use residential proxies for better success rates
-- Start with smaller batches to test configuration
-- Monitor logs for optimization opportunities
-- Adjust delays based on response times
+- **Issues**: Apri un issue su GitHub
+- **Documentazione**: Leggi questo README
+- **Esempi**: Controlla la cartella `examples/`
 
-## 📈 Scaling
+## 🔄 Aggiornamenti
 
-For large-scale operations:
-- Use multiple Actor instances
-- Implement data deduplication
-- Set up monitoring and alerting
-- Consider API rate limits
+### v2.0 (2025)
+- ✅ Tecniche anti-detection aggiornate
+- ✅ Supporto GraphQL intercettazione
+- ✅ Metodo HAR integrato
+- ✅ Simulazione comportamento umano
+- ✅ Setup automatico
 
-## 🤝 Support
-
-For issues or questions:
-1. Check the troubleshooting section
-2. Review Actor logs for error details
-3. Test with minimal configuration first
-4. Contact support with specific error messages
-
-## 📄 License
-
-MIT License - See LICENSE file for details
+### Roadmap
+- 🔄 Supporto API ufficiale Facebook
+- 🔄 Dashboard web per visualizzazione dati
+- 🔄 Integrazione database
+- 🔄 Analisi sentiment automatica
+- 🔄 Export PowerBI/Tableau
 
 ---
 
-**Note**: This Actor is for educational and research purposes. Always comply with Meta's Terms of Service and applicable laws in your jurisdiction.
+**⭐ Se questo progetto ti è utile, lascia una stella su GitHub!**
+
+*Ultimo aggiornamento: Gennaio 2025*

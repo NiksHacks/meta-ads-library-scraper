@@ -1,5 +1,5 @@
 {
-  "title": "Meta Ads Library Scraper Input",
+  "title": "Meta Ads Library Scraper 2025 Input",
   "type": "object",
   "schemaVersion": 1,
   "properties": {
@@ -81,10 +81,38 @@
       "title": "Delay Between Requests (ms)",
       "type": "integer",
       "description": "Delay between requests to avoid rate limiting",
-      "default": 2000,
+      "default": 3000,
       "minimum": 1000,
       "maximum": 10000,
       "editor": "number"
+    },
+    "pageId": {
+      "title": "Page ID (Optional)",
+      "type": "string",
+      "description": "Specific Facebook Page ID to search ads for",
+      "example": "123456789",
+      "editor": "textfield"
+    },
+    "enableGraphQLInterception": {
+      "title": "Enable GraphQL Interception",
+      "type": "boolean",
+      "description": "Intercept GraphQL requests for more comprehensive data (2025 feature)",
+      "default": true,
+      "editor": "checkbox"
+    },
+    "useAdvancedStealth": {
+      "title": "Use Advanced Anti-Detection",
+      "type": "boolean",
+      "description": "Enable advanced stealth techniques for 2025",
+      "default": true,
+      "editor": "checkbox"
+    },
+    "headlessMode": {
+      "title": "Headless Mode",
+      "type": "boolean",
+      "description": "Run browser in headless mode (faster but may be detected)",
+      "default": false,
+      "editor": "checkbox"
     }
   },
   "required": ["searchQuery"]

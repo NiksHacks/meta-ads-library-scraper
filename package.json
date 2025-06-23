@@ -1,7 +1,7 @@
 {
   "name": "meta-ads-library-scraper",
-  "version": "1.0.0",
-  "description": "Advanced Meta Ads Library scraper with anti-detection capabilities",
+  "version": "2.0.0",
+  "description": "Advanced Meta Ads Library scraper with 2025 anti-detection capabilities and GraphQL interception",
   "main": "src/main.js",
   "scripts": {
     "start": "node src/main.js",
@@ -19,13 +19,15 @@
   "author": "Your Name",
   "license": "MIT",
   "dependencies": {
-    "apify": "^3.1.10",
-    "crawlee": "^3.7.0",
-    "playwright": "^1.40.0",
+    "apify": "^3.2.0",
+    "crawlee": "^3.8.0",
+    "playwright": "^1.42.0",
     "cheerio": "^1.0.0-rc.12",
-    "axios": "^1.6.0",
+    "axios": "^1.7.0",
     "user-agents": "^1.1.0",
-    "proxy-agent": "^6.3.0"
+    "proxy-agent": "^6.4.0",
+    "playwright-extra": "^4.3.6",
+    "puppeteer-extra-plugin-stealth": "^2.11.2"
   },
   "devDependencies": {
     "eslint": "^8.0.0"

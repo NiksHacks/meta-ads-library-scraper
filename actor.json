@@ -1,9 +1,9 @@
 {
   "actorSpecification": 1,
   "name": "meta-ads-library-scraper",
-  "title": "Meta Ads Library Scraper",
-  "description": "Advanced scraper for Meta (Facebook) Ads Library with anti-detection capabilities, proxy support, and comprehensive data extraction. Scrapes ad creatives, targeting information, and performance metrics while bypassing bot detection systems.",
-  "version": "1.0.0",
+  "title": "Meta Ads Library Scraper 2025",
+  "description": "Next-generation Meta (Facebook) Ads Library scraper with 2025 anti-detection techniques, GraphQL interception, advanced stealth capabilities, and comprehensive data extraction. Features modern fingerprinting evasion, proxy rotation, and human behavior simulation.",
+  "version": "2.0.0",
   "meta": {
     "templateId": "javascript-crawlee"
   },
@@ -35,7 +35,12 @@
     "performance",
     "stealth",
     "bot-detection",
-    "headless-browser"
+    "headless-browser",
+    "graphql-interception",
+    "2025",
+    "fingerprinting-evasion",
+    "modern-anti-detection",
+    "human-behavior-simulation"
   ],
   "author": {
     "name": "StrategoSwat1",
