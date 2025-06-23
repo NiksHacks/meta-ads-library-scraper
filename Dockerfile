@@ -23,7 +23,7 @@ COPY package*.json ./
 USER root
 
 # Install dependencies
-RUN npm ci --only=production --no-optional \
+RUN npm ci --omit=dev --omit=optional \
     && npm cache clean --force
 
 # Switch back to myuser
