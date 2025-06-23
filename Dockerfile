@@ -26,15 +26,15 @@ USER root
 RUN npm ci --omit=dev --omit=optional \
     && npm cache clean --force
 
+# Install Playwright browsers and dependencies (as root)
+RUN npx playwright install chromium \
+    && npx playwright install-deps chromium
+
 # Switch back to myuser
 USER myuser
 
 # Copy source code
 COPY . ./
-
-# Install Playwright browsers and dependencies
-RUN npx playwright install chromium \
-    && npx playwright install-deps chromium
 
 # Expose port (if needed for debugging)
 EXPOSE 3000
