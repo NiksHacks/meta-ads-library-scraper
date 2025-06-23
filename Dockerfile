@@ -6,7 +6,7 @@ COPY . ./
 
 # Install dependencies as root
 USER root
-RUN npm install --production
+RUN npm install --omit=dev
 
 # Switch back to default user
 USER myuser
