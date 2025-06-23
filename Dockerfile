@@ -19,9 +19,15 @@ ENV NODE_OPTIONS="--max-old-space-size=4096"
 # Copy package files
 COPY package*.json ./
 
+# Switch to root for npm install
+USER root
+
 # Install dependencies
 RUN npm ci --only=production --no-optional \
     && npm cache clean --force
+
+# Switch back to myuser
+USER myuser
 
 # Copy source code
 COPY . ./
