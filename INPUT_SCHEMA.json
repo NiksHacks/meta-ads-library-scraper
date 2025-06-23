@@ -59,6 +59,7 @@
       "title": "Proxy Configuration",
       "type": "object",
       "description": "Proxy settings for anti-detection",
+      "editor": "json",
       "prefill": {
         "useApifyProxy": true
       },
