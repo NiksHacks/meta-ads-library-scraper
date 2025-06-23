@@ -567,8 +567,7 @@ class MetaAdsLibraryScraperV2 {
     }
 }
 
-// Import Actor from Apify SDK
-const { Actor } = require('apify');
+// Import Actor from Apify SDK (already imported at top)
 
 // Main Actor function
 Actor.main(async () => {
