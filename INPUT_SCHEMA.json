@@ -1,0 +1,96 @@
+{
+  "title": "Meta Ads Library Scraper Input",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "searchQuery": {
+      "title": "Search Query",
+      "type": "string",
+      "description": "Search term for ads (e.g., company name, keyword)",
+      "example": "Nike"
+    },
+    "country": {
+      "title": "Country",
+      "type": "string",
+      "description": "Country code for ad targeting (e.g., US, IT, GB)",
+      "default": "ALL",
+      "example": "US"
+    },
+    "adType": {
+      "title": "Ad Type",
+      "type": "string",
+      "description": "Type of ads to search",
+      "default": "ALL",
+      "enum": [
+        "ALL",
+        "POLITICAL_AND_ISSUE_ADS",
+        "HOUSING_ADS",
+        "EMPLOYMENT_ADS",
+        "CREDIT_ADS"
+      ]
+    },
+    "maxAds": {
+      "title": "Maximum Ads",
+      "type": "integer",
+      "description": "Maximum number of ads to scrape",
+      "default": 100,
+      "minimum": 1,
+      "maximum": 10000
+    },
+    "includeInactive": {
+      "title": "Include Inactive Ads",
+      "type": "boolean",
+      "description": "Include ads that are no longer active",
+      "default": false
+    },
+    "scrapeDetails": {
+      "title": "Scrape Detailed Information",
+      "type": "boolean",
+      "description": "Extract detailed ad information (slower but more comprehensive)",
+      "default": true
+    },
+    "proxyConfiguration": {
+      "title": "Proxy Configuration",
+      "type": "object",
+      "description": "Proxy settings for anti-detection",
+      "prefill": {
+        "useApifyProxy": true
+      },
+      "properties": {
+        "useApifyProxy": {
+          "type": "boolean",
+          "title": "Use Apify Proxy",
+          "default": true
+        },
+        "apifyProxyGroups": {
+          "type": "array",
+          "title": "Apify Proxy Groups",
+          "items": {
+            "type": "string"
+          },
+          "default": ["RESIDENTIAL"]
+        }
+      }
+    },
+    "outputFormat": {
+      "title": "Output Format",
+      "type": "string",
+      "description": "Format for the output data",
+      "default": "detailed",
+      "enum": [
+        "basic",
+        "detailed",
+        "full"
+      ]
+    },
+    "delayBetweenRequests": {
+      "title": "Delay Between Requests (ms)",
+      "type": "integer",
+      "description": "Delay between requests to avoid rate limiting",
+      "default": 2000,
+      "minimum": 1000,
+      "maximum": 10000
+    }
+  },
+  "required": ["searchQuery"]
+}

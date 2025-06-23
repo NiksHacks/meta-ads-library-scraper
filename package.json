@@ -1,0 +1,64 @@
+{
+  "name": "meta-ads-library-scraper",
+  "version": "1.0.0",
+  "description": "Advanced Meta Ads Library scraper with anti-detection capabilities",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "node src/main.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "apify",
+    "actor",
+    "scraping",
+    "facebook",
+    "meta",
+    "ads",
+    "library"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "apify": "^3.1.10",
+    "crawlee": "^3.7.0",
+    "playwright": "^1.40.0",
+    "cheerio": "^1.0.0-rc.12",
+    "axios": "^1.6.0",
+    "user-agents": "^1.1.0",
+    "proxy-agent": "^6.3.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.0.0"
+  },
+  "apify": {
+    "actorSpecification": 1,
+    "name": "meta-ads-library-scraper",
+    "title": "Meta Ads Library Scraper",
+    "description": "Extract comprehensive data from Meta (Facebook) Ads Library with advanced anti-detection",
+    "version": "1.0",
+    "storages": {
+      "dataset": {
+        "actorSpecification": 1,
+        "title": "Meta Ads Data",
+        "views": {
+          "overview": {
+            "title": "Overview",
+            "transformation": {
+              "fields": [
+                "adId",
+                "pageId",
+                "pageName",
+                "adContent",
+                "startDate",
+                "endDate",
+                "spend",
+                "impressions",
+                "reach"
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

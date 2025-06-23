@@ -1,0 +1,235 @@
+{
+  "actorSpecification": 1,
+  "name": "meta-ads-library-scraper",
+  "title": "Meta Ads Library Scraper",
+  "description": "Advanced scraper for Meta (Facebook) Ads Library with anti-detection capabilities, proxy support, and comprehensive data extraction. Scrapes ad creatives, targeting information, and performance metrics while bypassing bot detection systems.",
+  "version": "1.0.0",
+  "meta": {
+    "templateId": "javascript-crawlee"
+  },
+  "input": "./INPUT_SCHEMA.json",
+  "dockerfile": "./Dockerfile",
+  "readme": "./README.md",
+  "categories": [
+    "SOCIAL_MEDIA",
+    "ECOMMERCE",
+    "MARKETING"
+  ],
+  "keywords": [
+    "facebook",
+    "meta",
+    "ads",
+    "advertising",
+    "scraping",
+    "anti-detection",
+    "proxy",
+    "crawlee",
+    "playwright",
+    "marketing",
+    "social-media",
+    "ad-library",
+    "facebook-ads",
+    "meta-ads",
+    "ad-creatives",
+    "targeting",
+    "performance",
+    "stealth",
+    "bot-detection",
+    "headless-browser"
+  ],
+  "author": {
+    "name": "StrategoSwat1",
+    "email": "your-email@example.com"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/your-username/meta-ads-library-scraper",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/meta-ads-library-scraper.git"
+  },
+  "bugs": {
+    "url": "https://github.com/your-username/meta-ads-library-scraper/issues"
+  },
+  "storages": {
+    "dataset": {
+      "actorSpecification": 1,
+      "title": "Meta Ads Data",
+      "description": "Scraped data from Meta Ads Library including ad creatives, targeting information, and metadata",
+      "views": {
+        "overview": {
+          "title": "Overview",
+          "transformation": {
+            "fields": [
+              "adId",
+              "adText",
+              "advertiserName",
+              "startDate",
+              "endDate",
+              "impressions",
+              "spend",
+              "currency",
+              "targetingInfo",
+              "adCreativeUrl",
+              "landingPageUrl",
+              "platform",
+              "adType",
+              "isActive",
+              "scrapedAt"
+            ]
+          },
+          "display": {
+            "component": "table",
+            "properties": {
+              "adId": {
+                "label": "Ad ID",
+                "format": "text"
+              },
+              "adText": {
+                "label": "Ad Text",
+                "format": "text"
+              },
+              "advertiserName": {
+                "label": "Advertiser",
+                "format": "text"
+              },
+              "startDate": {
+                "label": "Start Date",
+                "format": "date"
+              },
+              "endDate": {
+                "label": "End Date",
+                "format": "date"
+              },
+              "impressions": {
+                "label": "Impressions",
+                "format": "number"
+              },
+              "spend": {
+                "label": "Spend",
+                "format": "number"
+              },
+              "currency": {
+                "label": "Currency",
+                "format": "text"
+              },
+              "platform": {
+                "label": "Platform",
+                "format": "text"
+              },
+              "adType": {
+                "label": "Ad Type",
+                "format": "text"
+              },
+              "isActive": {
+                "label": "Active",
+                "format": "boolean"
+              }
+            }
+          }
+        },
+        "targeting": {
+          "title": "Targeting Analysis",
+          "transformation": {
+            "fields": [
+              "adId",
+              "advertiserName",
+              "targetingInfo.ageRange",
+              "targetingInfo.gender",
+              "targetingInfo.locations",
+              "targetingInfo.interests",
+              "targetingInfo.behaviors",
+              "targetingInfo.customAudiences",
+              "targetingInfo.lookalikeSources",
+              "scrapedAt"
+            ]
+          }
+        },
+        "performance": {
+          "title": "Performance Metrics",
+          "transformation": {
+            "fields": [
+              "adId",
+              "advertiserName",
+              "impressions",
+              "spend",
+              "currency",
+              "cpm",
+              "ctr",
+              "reach",
+              "frequency",
+              "startDate",
+              "endDate",
+              "daysActive",
+              "scrapedAt"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "platform": "linux/amd64",
+  "environmentVariables": {
+    "NODE_ENV": "production",
+    "APIFY_HEADLESS": "1",
+    "APIFY_XVFB": "1",
+    "PLAYWRIGHT_BROWSERS_PATH": "/ms-playwright"
+  },
+  "buildTag": "latest",
+  "isPublic": true,
+  "isDeprecated": false,
+  "isAnonymouslyRunnable": true,
+  "seoTitle": "Meta Ads Library Scraper - Extract Facebook Ad Data with Anti-Detection",
+  "seoDescription": "Professional Meta (Facebook) Ads Library scraper with advanced anti-detection, proxy support, and comprehensive data extraction. Perfect for marketing research, competitor analysis, and ad intelligence.",
+  "socialPreviewImageUrl": "https://apify-uploads-prod.s3.amazonaws.com/social-preview-images/meta-ads-scraper.png",
+  "restartOnError": false,
+  "isPublicRunnable": true,
+  "defaultRunOptions": {
+    "build": "latest",
+    "timeoutSecs": 3600,
+    "memoryMbytes": 2048
+  },
+  "exampleRunInput": {
+    "searchQuery": "Nike shoes",
+    "country": "US",
+    "adType": "all",
+    "maxAds": 50,
+    "includeInactive": false,
+    "scrapeDetails": true,
+    "proxyConfiguration": {
+      "useApifyProxy": true,
+      "apifyProxyGroups": ["RESIDENTIAL"]
+    },
+    "outputFormat": "json",
+    "delayBetweenRequests": 2000
+  },
+  "exampleRunOutput": [
+    {
+      "adId": "123456789",
+      "adText": "Discover the latest Nike running shoes with advanced cushioning technology.",
+      "advertiserName": "Nike",
+      "advertiserPageUrl": "https://www.facebook.com/nike",
+      "startDate": "2025-01-01",
+      "endDate": "2025-01-31",
+      "impressions": "1,000,000 - 5,000,000",
+      "spend": "$50,000 - $100,000",
+      "currency": "USD",
+      "targetingInfo": {
+        "ageRange": "18-65",
+        "gender": "All",
+        "locations": ["United States"],
+        "interests": ["Running", "Fitness", "Sports"]
+      },
+      "adCreativeUrl": "https://scontent.xx.fbcdn.net/v/...",
+      "landingPageUrl": "https://www.nike.com/running-shoes",
+      "platform": ["Facebook", "Instagram"],
+      "adType": "image",
+      "isActive": true,
+      "scrapedAt": "2025-01-15T10:30:00.000Z",
+      "metadata": {
+        "scrapeId": "run_abc123",
+        "searchQuery": "Nike shoes",
+        "country": "US"
+      }
+    }
+  ]
+}
