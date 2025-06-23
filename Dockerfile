@@ -19,6 +19,9 @@ ENV NODE_OPTIONS="--max-old-space-size=4096"
 # Copy package files
 COPY package*.json ./
 
+# Fix permissions for npm install
+RUN chown -R $(whoami) /usr/src/app
+
 # Install dependencies
 RUN npm ci --only=production --no-optional \
     && npm cache clean --force
