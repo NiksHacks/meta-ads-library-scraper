@@ -19,8 +19,8 @@ ENV NODE_OPTIONS="--max-old-space-size=4096"
 # Copy package files
 COPY package*.json ./
 
-# Install dependencies with proper permissions
-RUN mkdir -p node_modules && npm ci --only=production --no-optional \
+# Install dependencies
+RUN npm ci --only=production --no-optional \
     && npm cache clean --force
 
 # Copy source code
