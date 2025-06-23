@@ -7,14 +7,16 @@
       "title": "Search Query",
       "type": "string",
       "description": "Search term for ads (e.g., company name, keyword)",
-      "example": "Nike"
+      "example": "Nike",
+      "editor": "textfield"
     },
     "country": {
       "title": "Country",
       "type": "string",
       "description": "Country code for ad targeting (e.g., US, IT, GB)",
       "default": "ALL",
-      "example": "US"
+      "example": "US",
+      "editor": "textfield"
     },
     "adType": {
       "title": "Ad Type",
@@ -27,7 +29,8 @@
         "HOUSING_ADS",
         "EMPLOYMENT_ADS",
         "CREDIT_ADS"
-      ]
+      ],
+      "editor": "select"
     },
     "maxAds": {
       "title": "Maximum Ads",
@@ -35,19 +38,22 @@
       "description": "Maximum number of ads to scrape",
       "default": 100,
       "minimum": 1,
-      "maximum": 10000
+      "maximum": 10000,
+      "editor": "number"
     },
     "includeInactive": {
       "title": "Include Inactive Ads",
       "type": "boolean",
       "description": "Include ads that are no longer active",
-      "default": false
+      "default": false,
+      "editor": "checkbox"
     },
     "scrapeDetails": {
       "title": "Scrape Detailed Information",
       "type": "boolean",
       "description": "Extract detailed ad information (slower but more comprehensive)",
-      "default": true
+      "default": true,
+      "editor": "checkbox"
     },
     "proxyConfiguration": {
       "title": "Proxy Configuration",
@@ -81,7 +87,8 @@
         "basic",
         "detailed",
         "full"
-      ]
+      ],
+      "editor": "select"
     },
     "delayBetweenRequests": {
       "title": "Delay Between Requests (ms)",
@@ -89,7 +96,8 @@
       "description": "Delay between requests to avoid rate limiting",
       "default": 2000,
       "minimum": 1000,
-      "maximum": 10000
+      "maximum": 10000,
+      "editor": "number"
     }
   },
   "required": ["searchQuery"]
