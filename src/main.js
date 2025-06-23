@@ -369,7 +369,9 @@ Actor.main(async () => {
             const userAgent = AntiDetection.getRandomUserAgent();
             const viewport = AntiDetection.getRandomViewport();
             
-            await page.setUserAgent(userAgent);
+            await page.setExtraHTTPHeaders({
+                'User-Agent': userAgent
+            });
             await page.setViewportSize(viewport);
             
             // Setup anti-detection
