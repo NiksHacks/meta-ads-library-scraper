@@ -341,28 +341,34 @@ Actor.main(async () => {
     
     console.log('Search URL:', searchUrl);
     
-    // Configure crawler with anti-detection
-    const crawler = new PlaywrightCrawler({
-        launchContext: {
-            launcher: chromium,
-            launchOptions: {
-                headless: true,
-                args: [
-                    '--no-sandbox',
-                    '--disable-setuid-sandbox',
-                    '--disable-dev-shm-usage',
-                    '--disable-accelerated-2d-canvas',
-                    '--no-first-run',
-                    '--no-zygote',
-                    '--disable-gpu',
-                    '--disable-background-timer-throttling',
-                    '--disable-backgrounding-occluded-windows',
-                    '--disable-renderer-backgrounding',
-                    '--disable-features=TranslateUI',
-                    '--disable-ipc-flooding-protection'
-                ]
-            }
-        },
+    // Configure crawler with anti-detection and memory optimization
+        const crawler = new PlaywrightCrawler({
+            launchContext: {
+                launcher: chromium,
+                launchOptions: {
+                    headless: true,
+                    args: [
+                        '--no-sandbox',
+                        '--disable-setuid-sandbox',
+                        '--disable-dev-shm-usage',
+                        '--disable-accelerated-2d-canvas',
+                        '--no-first-run',
+                        '--no-zygote',
+                        '--disable-gpu',
+                        '--disable-background-timer-throttling',
+                        '--disable-backgrounding-occluded-windows',
+                        '--disable-renderer-backgrounding',
+                        '--disable-features=TranslateUI',
+                        '--disable-ipc-flooding-protection',
+                        '--memory-pressure-off',
+                        '--max_old_space_size=512'
+                    ]
+                }
+            },
+            
+            // Memory optimization settings
+            maxConcurrency: 1,
+            maxRequestsPerCrawl: 100,
         
         preNavigationHooks: [async ({ page }) => {
             // Set random user agent and viewport
@@ -421,11 +427,30 @@ Actor.main(async () => {
                             return true;
                         });
                         
+                        // Limit the size of scrapedAds Set to prevent memory issues
+                        if (scraper.scrapedAds.size > 1000) {
+                            const adsArray = Array.from(scraper.scrapedAds);
+                            scraper.scrapedAds = new Set(adsArray.slice(-500)); // Keep only last 500
+                            console.log('Cleaned up scraped ads cache to prevent memory overflow');
+                        }
+                        
                         if (newAds.length > 0) {
-                            // Save to dataset
-                            await Dataset.pushData(newAds);
+                            // Save to dataset in smaller batches to reduce memory usage
+                            const batchSize = 10;
+                            for (let i = 0; i < newAds.length; i += batchSize) {
+                                const batch = newAds.slice(i, i + batchSize);
+                                await Dataset.pushData(batch);
+                            }
                             totalAdsScraped += newAds.length;
                             console.log(`Scraped ${newAds.length} new ads. Total: ${totalAdsScraped}`);
+                            
+                            // Clear processed ads from memory every 50 ads
+                            if (totalAdsScraped % 50 === 0) {
+                                if (global.gc) {
+                                    global.gc();
+                                    console.log('Memory cleanup performed');
+                                }
+                            }
                         }
                     }
                     
