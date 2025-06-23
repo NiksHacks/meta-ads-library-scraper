@@ -16,27 +16,15 @@ ENV PLAYWRIGHT_BROWSERS_PATH=/ms-playwright
 # Set memory limits for better stability
 ENV NODE_OPTIONS="--max-old-space-size=4096"
 
-# Create non-root user for security
-RUN groupadd -r apify && useradd -r -g apify -G audio,video apify \
-    && mkdir -p /home/apify/Downloads \
-    && chown -R apify:apify /home/apify \
-    && chown -R apify:apify /usr/src/app
-
 # Copy package files
 COPY package*.json ./
-
-# Change ownership of copied files
-RUN chown -R apify:apify /usr/src/app
-
-# Switch to non-root user
-USER apify
 
 # Install dependencies
 RUN npm ci --only=production --no-optional \
     && npm cache clean --force
 
 # Copy source code
-COPY --chown=apify:apify . ./
+COPY . ./
 
 # Install Playwright browsers and dependencies
 RUN npx playwright install chromium \
