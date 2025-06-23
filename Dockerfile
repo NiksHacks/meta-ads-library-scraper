@@ -1,5 +1,5 @@
 # Use the official Apify base image with Node.js and Playwright
-FROM apify/actor-node-playwright-chrome:18
+FROM apify/actor-node-playwright-chrome:20
 
 # Set working directory
 WORKDIR /usr/src/app
