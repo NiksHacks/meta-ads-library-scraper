@@ -61,22 +61,8 @@
       "description": "Proxy settings for anti-detection",
       "editor": "json",
       "prefill": {
-        "useApifyProxy": true
-      },
-      "properties": {
-        "useApifyProxy": {
-          "type": "boolean",
-          "title": "Use Apify Proxy",
-          "default": true
-        },
-        "apifyProxyGroups": {
-          "type": "array",
-          "title": "Apify Proxy Groups",
-          "items": {
-            "type": "string"
-          },
-          "default": ["RESIDENTIAL"]
-        }
+        "useApifyProxy": true,
+        "apifyProxyGroups": ["RESIDENTIAL"]
       }
     },
     "outputFormat": {
